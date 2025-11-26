@@ -271,6 +271,50 @@
       transform: translateY(-2px);
     }
 
+    /* FAQ */
+    .faq-section {
+      margin-top: 30px;
+      background: var(--card-bg);
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+
+    .faq-item { margin-bottom: 10px; }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: #e2e8f0;
+      border: none;
+      padding: 10px 14px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question span {
+      font-size: 16px;
+    }
+
+    body.dark .faq-question {
+      background: #1e293b;
+      color: #e2e8f0;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px 14px 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .faq-answer p { margin: 0 0 6px; }
+
     /* FOOTER */
     footer {
       background: #020617;
@@ -453,6 +497,63 @@
     </div>
 
   </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2 class="section-title" style="margin-top:0; margin-bottom:16px;">❓ Câu hỏi thường gặp (FAQ)</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Đăng ký vay qua VN Loan có mất phí không?</span>
+        <span>＋</span>
+      </button>
+      <div class="faq-answer">
+        <p>Không. Việc đăng ký hoàn toàn miễn phí, VN Loan không thu bất kỳ khoản phí nào từ khách hàng.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Sau khi đăng ký bao lâu thì có người liên hệ?</span>
+        <span>＋</span>
+      </button>
+      <div class="faq-answer">
+        <p>Thường trong 5–15 phút, tùy từng đối tác. Một số đơn vị có thể liên hệ nhanh hơn trong giờ làm việc.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Ai là người giải ngân cho tôi?</span>
+        <span>＋</span>
+      </button>
+      <div class="faq-answer">
+        <p>Đơn vị tài chính mà bạn đăng ký trực tiếp giải ngân khoản vay, không phải VN Loan.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>VN Loan có phải là công ty cho vay tiền không?</span>
+        <span>＋</span>
+      </button>
+      <div class="faq-answer">
+        <p>Không. VN Loan chỉ là trang giới thiệu & so sánh đối tác vay online, giúp bạn chọn đơn vị phù hợp.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        <span>Thông tin cá nhân của tôi có được bảo mật không?</span>
+        <span>＋</span>
+      </button>
+      <div class="faq-answer">
+        <p>Thông tin bạn cung cấp sẽ được gửi đến đúng đối tác mà bạn chọn để xét duyệt hồ sơ, không chia sẻ bừa bãi cho bên thứ ba.</p>
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 <footer>
@@ -461,8 +562,8 @@
     <div>Trang giới thiệu & so sánh đối tác vay online tại Việt Nam.</div>
     <div class="footer-disclaimer">
       VN Loan không phải đơn vị cho vay.  
-      Hạn mức, điều kiện vay… do từng đối tác cung cấp.  
-      Vui lòng đọc kỹ trước khi xác nhận hồ sơ.
+      Hạn mức, lãi suất, điều kiện vay… do từng đối tác tài chính cung cấp.  
+      Người dùng vui lòng đọc kỹ thông tin trước khi xác nhận hồ sơ vay.
     </div>
   </div>
 </footer>
@@ -487,11 +588,6 @@
     localStorage.setItem("theme", isDark ? "dark" : "light");
     if (themeBtn) themeBtn.textContent = isDark ? "☀ Light" : "🌙 Dark";
   }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    themeBtn = document.getElementById("themeToggleBtn");
-    applySavedTheme();
-  });
 
   /* SNOW EFFECT */
   const canvas = document.getElementById("snowCanvas");
@@ -550,6 +646,26 @@
     setTimeout(() => gift.remove(), 8000);
   }
   setInterval(createGift, 1000 + Math.random() * 600);
+
+  /* FAQ ACCORDION */
+  function initFAQ() {
+    document.querySelectorAll(".faq-question").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const answer = btn.nextElementSibling;
+        const symbol = btn.querySelector("span:last-child");
+        const isOpen = answer.style.display === "block";
+
+        answer.style.display = isOpen ? "none" : "block";
+        symbol.textContent = isOpen ? "＋" : "－";
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    themeBtn = document.getElementById("themeToggleBtn");
+    applySavedTheme();
+    initFAQ();
+  });
 </script>
 
 </body>
