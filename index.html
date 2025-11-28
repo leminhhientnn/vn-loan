@@ -2,669 +2,526 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>VN Loan – Vay Online Nhanh, Đối Tác Uy Tín</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vay tiền online nhanh – nhận tiền ngay</title>
 
   <style>
-    html { scroll-behavior: smooth; }
-
     :root {
-      --primary: #16a34a;
-      --primary-dark: #166534;
-      --accent: #22c55e;
-      --bg: #f1f5f9;
-      --card-bg: #ffffff;
-      --text: #0f172a;
-      --muted: #6b7280;
+      --bg-page: #e5f2ff;
+      --bg-header: #0f172a;
+      --bg-card: #ffffff;
+      --border-card: #d1d5db;
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --yellow: #f59e0b;
+      --green: #16a34a;
+      --primary: #ff3366;
+      --primary-dark: #e01f50;
+      --orange: #f97316;
+      --footer-bg: #0b1220;
+      --footer-border: #1f2937;
+      --card-radius: 20px;
     }
 
-    body.dark {
-      --bg: #020617;
-      --card-bg: #020617;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --primary: #22c55e;
-      --primary-dark: #16a34a;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
     }
 
-    /* SNOW CANVAS */
-    #snowCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      padding: 20px 14px 32px;
     }
 
-    /* TOP BAR */
-    .top-bar {
-      background: var(--primary-dark);
-      color: white;
-      padding: 10px 14px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .top-bar-inner {
-      max-width: 960px;
+    .container {
+      max-width: 1100px;
       margin: 0 auto;
+    }
+
+    /* HEADER */
+    .top-bar {
+      background: var(--bg-header);
+      border-radius: 16px;
+      padding: 12px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.55);
+      margin-bottom: 24px;
+      color: #e5e7eb;
     }
 
-    .brand-wrap {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .logo-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      background: #fff;
-      color: var(--primary-dark);
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #111827;
       font-weight: 800;
+      font-size: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.25);
     }
 
     .brand-title {
-      font-size: 16px;
       font-weight: 700;
+      font-size: 17px;
     }
 
     .brand-sub {
       font-size: 12px;
-      opacity: 0.9;
+      color: #9ca3af;
     }
 
-    .theme-toggle {
-      background: transparent;
-      color: white;
-      padding: 4px 12px;
+    .cta-main {
+      background: var(--primary);
+      padding: 10px 26px;
+      color: #fff;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.4);
-      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(248, 113, 113, 0.55);
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-main:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* INTRO SECTION */
+    .intro {
+      display: grid;
+      grid-template-columns: 2fr 1.1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .intro-left,
+    .intro-right {
+      background: var(--bg-card);
+      padding: 20px 22px;
+      border-radius: var(--card-radius);
+      border: 1px solid var(--border-card);
+      box-shadow: 0 12px 30px rgba(148, 163, 184, 0.45);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(22, 163, 74, 0.12);
+      padding: 6px 12px;
+      color: var(--green);
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    h1 span {
+      color: var(--yellow);
+    }
+
+    .intro-left p {
+      margin-top: 10px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .intro-left ul {
+      margin-top: 10px;
+      list-style: none;
+    }
+
+    .intro-left li {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .intro-left li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
       font-size: 12px;
     }
 
-    /* Blink VN Loan */
-    .blink-vnloan {
-      animation: blinkGlow 1.8s infinite ease-in-out;
-    }
-
-    @keyframes blinkGlow {
-      0%, 100% {
-        text-shadow: 0 0 4px rgba(255, 255, 255, 0.4),
-                     0 0 6px var(--accent);
-        opacity: 1;
-      }
-      50% {
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.9),
-                     0 0 14px var(--primary);
-        opacity: 0.8;
-      }
-    }
-
-    /* BANNER */
-    .banner {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #fff;
-      padding: 30px 18px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .banner-inner {
-      max-width: 560px;
-      margin: 0 auto;
-      animation: fadeDown 0.5s ease-out;
-    }
-
-    .banner h1 {
-      margin: 0 0 10px;
-      font-size: 22px;
-    }
-
-    .banner p {
-      opacity: 0.95;
-      font-size: 14px;
-      max-width: 440px;
-      margin: 0 auto;
-    }
-
-    .banner-btn {
-      margin-top: 16px;
-      background: white;
-      color: var(--primary-dark);
-      padding: 10px 18px;
+    .big-btn {
+      background: linear-gradient(135deg, #fbbf24, var(--orange));
+      padding: 12px 20px;
       display: inline-block;
+      font-weight: 700;
       border-radius: 999px;
+      color: #111827;
+      margin-top: 16px;
       text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.18);
-    }
-
-    /* MAIN CONTENT */
-    .container {
-      max-width: 960px;
-      margin: 24px auto;
-      padding: 0 14px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .benefits-card {
-      background: var(--card-bg);
-      padding: 18px;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-    }
-
-    .benefits-card h2 {
-      margin: 0 0 12px;
-      font-size: 16px;
-    }
-
-    .benefits-list {
-      margin: 0;
-      padding-left: 18px;
+      box-shadow: 0 10px 24px rgba(245, 158, 11, 0.55);
       font-size: 14px;
     }
 
-    .benefits-list li {
-      margin-bottom: 4px;
+    .big-btn:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
     }
 
-    .section-title {
-      text-align: center;
-      margin: 26px 0 14px;
+    .intro-right h3 {
       font-size: 18px;
-      font-weight: 700;
-      color: var(--primary-dark);
+      margin-bottom: 10px;
     }
 
-    /* OFFER CARDS */
+    .intro-right p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* OFFERS LIST */
+    .offers-title {
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .offers-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
     .offers-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    @media (min-width:720px) {
-      .offers-grid { grid-template-columns: 1fr 1fr; }
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
     .offer-card {
-      background: var(--card-bg);
-      padding: 16px;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      transition: 0.2s;
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--border-card);
+      box-shadow: 0 10px 30px rgba(148, 163, 184, 0.6);
+      transition: 0.15s;
     }
 
     .offer-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(148, 163, 184, 0.85);
     }
 
-    .offer-icon {
-      width: 36px;
-      height: 36px;
-      background: #dcfce7;
-      color: #166534;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 19px;
-      margin: 0 auto 8px;
-    }
-
-    .offer-card h3 {
-      margin: 4px 0;
-      font-size: 16px;
+    .offer-name {
+      font-size: 18px;
       font-weight: 700;
+      color: #1d4ed8;
+      margin-bottom: 6px;
     }
 
-    .offer-card p {
-      color: var(--muted);
-      font-size: 13px;
-      margin: 4px 0 12px;
-    }
-
-    .btn {
-      margin-top: auto;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 8px;
-      padding: 10px 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 13px;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    /* FAQ */
-    .faq-section {
-      margin-top: 30px;
-      background: var(--card-bg);
-      padding: 18px;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-    }
-
-    .faq-item { margin-bottom: 10px; }
-
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      background: #e2e8f0;
-      border: none;
-      padding: 10px 14px;
+    .offer-info {
       font-size: 14px;
-      border-radius: 8px;
-      cursor: pointer;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .offer-approve {
+      color: var(--green);
       font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-question span {
-      font-size: 16px;
-    }
-
-    body.dark .faq-question {
-      background: #1e293b;
-      color: #e2e8f0;
-    }
-
-    .faq-answer {
-      display: none;
-      padding: 10px 14px 6px;
+      margin-top: 8px;
       font-size: 13px;
-      color: var(--muted);
     }
 
-    .faq-answer p { margin: 0 0 6px; }
+    .offer-btn {
+      background: linear-gradient(135deg, #fbbf24, var(--orange));
+      margin-top: 12px;
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 999px;
+      font-weight: 600;
+      color: #111827;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .offer-btn:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
 
     /* FOOTER */
     footer {
-      background: #020617;
-      color:#cbd5f5;
-      padding:20px 14px;
-      text-align:left;
-      font-size:12px;
-      margin-top:36px;
-      position:relative;
-      z-index:2;
+      margin-top: 38px;
+      background: var(--footer-bg);
+      color: #e5e7eb;
+      border-radius: 18px;
+      padding: 18px 20px 14px;
+      border: 1px solid var(--footer-border);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.7);
+      font-size: 13px;
     }
 
-    .footer-inner { max-width:960px; margin:0 auto; }
-    .footer-title { font-size:14px; font-weight:700; margin-bottom:6px; }
-    .footer-disclaimer { font-size:11.5px; opacity:0.85; line-height:1.45; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.5fr 1.2fr;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
 
-    /* ZALO BUTTON */
-    .zalo-float {
-      position: fixed;
-      right: 16px;
-      bottom: 20px;
-      width: 52px;
-      height: 52px;
-      background: #0ea5e9;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .footer-text {
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #9ca3af;
       text-decoration: none;
-      color: white;
-      font-weight: 700;
-      font-size: 22px;
-      z-index: 30;
-      animation: pulse 2s infinite;
+      margin-bottom: 4px;
+      font-size: 13px;
     }
 
-    /* GIFT FALLING */
-    .gift {
-      position: fixed;
-      top: -40px;
-      width: 28px;
-      height: 28px;
-      z-index: 2;
-      pointer-events: none;
-      user-select: none;
-      animation: fallGift linear infinite;
-      font-size: 22px;
+    .footer-links a:hover {
+      color: #e5e7eb;
     }
 
-    @keyframes fallGift {
-      from { transform: translateY(-40px) rotate(0deg); }
-      to   { transform: translateY(110vh) rotate(360deg); }
+    .footer-bottom {
+      border-top: 1px solid var(--footer-border);
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: #6b7280;
+      font-size: 12px;
+      flex-wrap: wrap;
     }
 
-    @keyframes fadeDown {
-      from { opacity:0; transform: translateY(-12px); }
-      to   { opacity:1; transform: translateY(0); }
+    @media (max-width: 860px) {
+      .intro {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
     }
 
-    @keyframes pulse {
-      0%,100% { transform:scale(1); box-shadow:0 4px 12px rgba(0,0,0,0.3); }
-      50%     { transform:scale(1.08); box-shadow:0 6px 18px rgba(0,0,0,0.4); }
-    }
-
-    @media (max-width:480px) {
-      .banner h1 { font-size:20px; }
-      .container { padding: 0 10px; }
-    }
   </style>
 </head>
 
 <body>
-
-<!-- SNOW CANVAS -->
-<canvas id="snowCanvas"></canvas>
-
-<!-- Zalo -->
-<a class="zalo-float" href="https://zalo.me/0123456789" target="_blank">Z</a>
-
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div class="top-bar-inner">
-    <div class="brand-wrap">
-      <div class="logo-circle">VN</div>
-      <div>
-        <div class="brand-title blink-vnloan">VN Loan</div>
-        <div class="brand-sub">So sánh đối tác vay tiền uy tín</div>
-      </div>
-    </div>
-    <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">🌙 Dark</button>
-  </div>
-</div>
-
-<!-- BANNER -->
-<section class="banner">
-  <div class="banner-inner">
-    <h1>VN Loan – Vay Online Nhanh Uy Tín</h1>
-    <p>Đăng ký vay online chỉ trong vài phút, nhận hỗ trợ từ các đơn vị tài chính uy tín.</p>
-    <a href="#offers" class="banner-btn">Xem danh sách đối tác</a>
-  </div>
-</section>
-
 <div class="container">
 
-  <div class="benefits-card">
-    <h2>🎯 Lợi ích khi vay online</h2>
-    <ul class="benefits-list">
-      <li>✔ Chỉ cần CCCD/CMND.</li>
-      <li>✔ Duyệt nhanh – không cần gặp trực tiếp.</li>
-      <li>✔ Nhiều đơn vị giải ngân trong ngày.</li>
-      <li>✔ Hạn mức linh hoạt theo nhu cầu.</li>
-    </ul>
+  <!-- HEADER -->
+  <header class="top-bar">
+    <div class="brand">
+      <div class="brand-logo">VN</div>
+      <div>
+        <div class="brand-title">VAY ONLINE</div>
+        <div class="brand-sub">Creditnice • FinPug • Cashonline…</div>
+      </div>
+    </div>
+
+    <a href="#offers" class="cta-main">Áp dụng ngay →</a>
+  </header>
+
+  <!-- INTRO SECTION -->
+  <section class="intro">
+    <div class="intro-left">
+      <div class="badge">Đối tác tài chính online – xét duyệt tự động</div>
+
+      <h1>Vay tiền online <span>nhanh</span> – nhận tiền trong ngày</h1>
+      <p>
+        Tổng hợp các ứng dụng vay tiền uy tín như Creditnice, FinPug, Creditify,
+        Cashonline, Finloo, Credy, Crezu, Credilo. Đăng ký đơn giản, xét duyệt nhanh,
+        giải ngân về tài khoản ngân hàng.
+      </p>
+
+      <ul>
+        <li>Xét duyệt tự động, chỉ vài phút là có kết quả</li>
+        <li>Đăng ký 100% online trên điện thoại, không cần gặp mặt</li>
+        <li>Nhiều hạn mức, nhiều app cho bạn lựa chọn</li>
+      </ul>
+
+      <a href="#offers" class="big-btn">Xem danh sách app vay ↓</a>
+    </div>
+
+    <div class="intro-right">
+      <h3>Ưu đãi hôm nay</h3>
+      <p>
+        Khoản vay tham khảo: <b>1 – 100 triệu</b><br>
+        Hình thức: <b>Vay tín chấp, hồ sơ online</b><br>
+        Thời gian duyệt: <b>Vài phút – vài giờ</b><br>
+        Độ tuổi: <b>18 – 60+ (tùy app)</b><br><br>
+        Lãi suất, hạn mức &amp; điều kiện cụ thể do từng đối tác cung cấp. Một số app
+        hỗ trợ khách mới với ưu đãi tốt hơn.
+      </p>
+    </div>
+  </section>
+
+  <!-- OFFERS -->
+  <h2 class="offers-title" id="offers">Danh sách ứng dụng vay tiền online</h2>
+  <p class="offers-note">
+    Nên chọn 2–3 app phù hợp để đăng ký, tăng khả năng hồ sơ được duyệt nhanh.
+  </p>
+
+  <div class="offers-grid" id="offersGrid">
+    <!-- JS sẽ render các offer vào đây -->
   </div>
 
-  <h2 id="offers" class="section-title">📌 Danh sách đối tác vay tiền online</h2>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">Về trang Vay Online</div>
+        <p class="footer-text">
+          Đây là trang tổng hợp và giới thiệu ưu đãi vay tiền online từ nhiều đối tác khác nhau.
+          Chúng tôi không phải là bên cho vay tiền, mọi khoản vay đều do các tổ chức tài chính /
+          ứng dụng đối tác xét duyệt và giải ngân.
+        </p>
+      </div>
 
-  <div class="offers-grid">
+      <div>
+        <div class="footer-title">Lưu ý quan trọng</div>
+        <p class="footer-text">
+          • Đọc kỹ điều khoản, lãi suất và phí phạt trước khi ký hợp đồng.<br>
+          • Tuyệt đối không cung cấp mã OTP, mật khẩu Internet Banking cho người lạ.<br>
+          • Chỉ vay trong khả năng chi trả, tránh nợ xấu ảnh hưởng lịch sử tín dụng.
+        </p>
+      </div>
 
-    <div class="offer-card">
-      <div class="offer-icon">💸</div>
-      <h3>Cashonline</h3>
-      <p>Duyệt nhanh – giải ngân trong ngày.</p>
-      <a class="btn" href="https://murtov.com/VYmS">Đăng ký vay</a>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon">📲</div>
-      <h3>Credilo</h3>
-      <p>Xét duyệt tự động theo thông tin.</p>
-      <a class="btn" href="https://murtov.com/bYmS">Đăng ký vay</a>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon">🤝</div>
-      <h3>Crezu</h3>
-      <p>Gợi ý khoản vay phù hợp.</p>
-      <a class="btn" href="https://murtov.com/RYmS">Đăng ký vay</a>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon">⚡</div>
-      <h3>Finllo</h3>
-      <p>Thủ tục nhanh – đơn giản.</p>
-      <a class="btn" href="https://murtov.com/iYmS">Đăng ký vay</a>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon">🏦</div>
-      <h3>Credy</h3>
-      <p>Hỗ trợ khách hàng mới.</p>
-      <a class="btn" href="https://murtov.com/TYmS">Đăng ký vay</a>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon">💼</div>
-      <h3>Finpug</h3>
-      <p>Lãi suất ưu đãi.</p>
-      <a class="btn" href="https://murtov.com/wYmS">Đăng ký vay</a>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon">📑</div>
-      <h3>Creditnice</h3>
-      <p>Hạn mức linh hoạt.</p>
-      <a class="btn" href="https://murtov.com/GYmS">Đăng ký vay</a>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon">🌐</div>
-      <h3>Binixo</h3>
-      <p>Hỗ trợ toàn quốc.</p>
-      <a class="btn" href="https://murtov.com/mYmS">Đăng ký vay</a>
-    </div>
-
-    <div class="offer-card">
-      <div class="offer-icon">⭐</div>
-      <h3>Credifity</h3>
-      <p>Kết nối nhiều đối tác.</p>
-      <a class="btn" href="https://murtov.com/SYmS">Đăng ký vay</a>
-    </div>
-
-  </div>
-
-  <!-- FAQ -->
-  <div class="faq-section">
-    <h2 class="section-title" style="margin-top:0; margin-bottom:16px;">❓ Câu hỏi thường gặp (FAQ)</h2>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>Đăng ký vay qua VN Loan có mất phí không?</span>
-        <span>＋</span>
-      </button>
-      <div class="faq-answer">
-        <p>Không. Việc đăng ký hoàn toàn miễn phí, VN Loan không thu bất kỳ khoản phí nào từ khách hàng.</p>
+      <div>
+        <div class="footer-title">Liên hệ &amp; hỗ trợ</div>
+        <div class="footer-links">
+          <a href="#">Câu hỏi thường gặp</a>
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Liên hệ hợp tác</a>
+        </div>
       </div>
     </div>
 
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>Sau khi đăng ký bao lâu thì có người liên hệ?</span>
-        <span>＋</span>
-      </button>
-      <div class="faq-answer">
-        <p>Thường trong 5–15 phút, tùy từng đối tác. Một số đơn vị có thể liên hệ nhanh hơn trong giờ làm việc.</p>
-      </div>
+    <div class="footer-bottom">
+      <span>© 2025 Vay Online VN. All rights reserved.</span>
+      <span>*Trang mang tính chất tham khảo, không chịu trách nhiệm về quyết định vay của người dùng.</span>
     </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>Ai là người giải ngân cho tôi?</span>
-        <span>＋</span>
-      </button>
-      <div class="faq-answer">
-        <p>Đơn vị tài chính mà bạn đăng ký trực tiếp giải ngân khoản vay, không phải VN Loan.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>VN Loan có phải là công ty cho vay tiền không?</span>
-        <span>＋</span>
-      </button>
-      <div class="faq-answer">
-        <p>Không. VN Loan chỉ là trang giới thiệu & so sánh đối tác vay online, giúp bạn chọn đơn vị phù hợp.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>Thông tin cá nhân của tôi có được bảo mật không?</span>
-        <span>＋</span>
-      </button>
-      <div class="faq-answer">
-        <p>Thông tin bạn cung cấp sẽ được gửi đến đúng đối tác mà bạn chọn để xét duyệt hồ sơ, không chia sẻ bừa bãi cho bên thứ ba.</p>
-      </div>
-    </div>
-
-  </div>
+  </footer>
 
 </div>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-title">VN Loan</div>
-    <div>Trang giới thiệu & so sánh đối tác vay online tại Việt Nam.</div>
-    <div class="footer-disclaimer">
-      VN Loan không phải đơn vị cho vay.  
-      Hạn mức, lãi suất, điều kiện vay… do từng đối tác tài chính cung cấp.  
-      Người dùng vui lòng đọc kỹ thông tin trước khi xác nhận hồ sơ vay.
-    </div>
-  </div>
-</footer>
-
+<!-- JS: random thứ tự offer & render -->
 <script>
-  /* DARK MODE */
-  let themeBtn;
-  function applySavedTheme() {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      document.body.classList.add("dark");
-      if (themeBtn) themeBtn.textContent = "☀ Light";
-    } else {
-      document.body.classList.remove("dark");
-      if (themeBtn) themeBtn.textContent = "🌙 Dark";
+  const offers = [
+    {
+      name: "Creditnice VN",
+      amount: "lên đến 10.000.000 đ",
+      term: "tối đa 30 ngày",
+      approve: "94%",
+      url: "https://murtov.com/GYmS"
+    },
+    {
+      name: "FinPug VN",
+      amount: "lên đến 10.000.000 đ",
+      term: "tối đa 30 ngày",
+      approve: "94%",
+      url: "https://murtov.com/wYmS"
+    },
+    {
+      name: "Creditify VN",
+      amount: "lên đến 10.000.000 đ",
+      term: "tối đa 30 ngày",
+      approve: "93%",
+      url: "https://murtov.com/SYmS"
+    },
+    {
+      name: "Credy VN",
+      amount: "lên đến 15.000.000 đ",
+      term: "tối đa 60 ngày",
+      approve: "93%",
+      url: "https://murtov.com/TYmS"
+    },
+    {
+      name: "Finloo VN",
+      amount: "lên đến 10.000.000 đ",
+      term: "tối đa 30 ngày",
+      approve: "92%",
+      url: "https://murtov.com/iYmS"
+    },
+    {
+      name: "Crezu VN",
+      amount: "lên đến 20.000.000 đ",
+      term: "tối đa 90 ngày",
+      approve: "92%",
+      url: "https://murtov.com/RYmS"
+    },
+    {
+      name: "Credilo VN",
+      amount: "lên đến 10.000.000 đ",
+      term: "tối đa 30–90 ngày",
+      approve: "92%",
+      url: "https://murtov.com/bYmS"
+    },
+    {
+      name: "Cashonline VN",
+      amount: "lên đến 10.000.000 đ",
+      term: "tối đa 30 ngày",
+      approve: "92%",
+      url: "https://murtov.com/VYmS"
     }
+  ];
+
+  // Fisher–Yates shuffle để random thứ tự
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
 
-  function toggleTheme() {
-    document.body.classList.toggle("dark");
-    const isDark = document.body.classList.contains("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    if (themeBtn) themeBtn.textContent = isDark ? "☀ Light" : "🌙 Dark";
-  }
+  const grid = document.getElementById("offersGrid");
+  const shuffled = shuffle(offers.slice()); // copy rồi shuffle
 
-  /* SNOW EFFECT */
-  const canvas = document.getElementById("snowCanvas");
-  const ctx = canvas.getContext("2d");
-  let snowflakes = [];
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
-
-  function createSnow() {
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height;
-    const radius = Math.random() * 3 + 1;
-    const speed = Math.random() * 1 + 0.5;
-    snowflakes.push({ x, y, radius, speed });
-  }
-
-  function updateSnow() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "white";
-    ctx.beginPath();
-
-    snowflakes.forEach((snow, i) => {
-      ctx.moveTo(snow.x, snow.y);
-      ctx.arc(snow.x, snow.y, snow.radius, 0, Math.PI * 2);
-
-      snow.y += snow.speed;
-      if (snow.y > canvas.height) {
-        snowflakes.splice(i, 1);
-      }
-    });
-
-    ctx.fill();
-  }
-
-  function snowfallLoop() {
-    createSnow();
-    updateSnow();
-    requestAnimationFrame(snowfallLoop);
-  }
-  snowfallLoop();
-
-  /* GIFTS FALLING */
-  const giftEmojis = ["🎁","🎀","🛍️","✨"];
-  function createGift() {
-    const gift = document.createElement("div");
-    gift.classList.add("gift");
-    gift.style.left = Math.random() * window.innerWidth + "px";
-    gift.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    gift.textContent = giftEmojis[Math.floor(Math.random() * giftEmojis.length)];
-    document.body.appendChild(gift);
-    setTimeout(() => gift.remove(), 8000);
-  }
-  setInterval(createGift, 1000 + Math.random() * 600);
-
-  /* FAQ ACCORDION */
-  function initFAQ() {
-    document.querySelectorAll(".faq-question").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const answer = btn.nextElementSibling;
-        const symbol = btn.querySelector("span:last-child");
-        const isOpen = answer.style.display === "block";
-
-        answer.style.display = isOpen ? "none" : "block";
-        symbol.textContent = isOpen ? "＋" : "－";
-      });
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    themeBtn = document.getElementById("themeToggleBtn");
-    applySavedTheme();
-    initFAQ();
+  shuffled.forEach(o => {
+    const card = document.createElement("div");
+    card.className = "offer-card";
+    card.innerHTML = `
+      <div class="offer-name">${o.name}</div>
+      <div class="offer-info">Số tiền: ${o.amount}</div>
+      <div class="offer-info">Thời hạn: ${o.term}</div>
+      <div class="offer-approve">Tỷ lệ phê duyệt: ${o.approve}</div>
+      <a href="${o.url}" target="_blank" rel="nofollow" class="offer-btn">Nhận tiền</a>
+    `;
+    grid.appendChild(card);
   });
 </script>
 
