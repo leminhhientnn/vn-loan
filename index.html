@@ -1,10 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vay tiền online nhanh – nhận tiền ngay</title>
-<link rel="icon" type="image/png" href="1234.png">
+
+  <link rel="icon" type="image/png" href="http://vnloan.io.vn/favicon_vay_tien.png">
+
   <style>
     :root {
       --bg-page: #e5f2ff;
@@ -27,8 +30,8 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, sans-serif;
     }
 
     body {
@@ -42,7 +45,6 @@
       margin: 0 auto;
     }
 
-    /* HEADER */
     .top-bar {
       background: var(--bg-header);
       border-radius: 16px;
@@ -98,10 +100,8 @@
 
     .cta-main:hover {
       background: var(--primary-dark);
-      transform: translateY(-1px);
     }
 
-    /* INTRO SECTION */
     .intro {
       display: grid;
       grid-template-columns: 2fr 1.1fr;
@@ -180,11 +180,6 @@
       font-size: 14px;
     }
 
-    .big-btn:hover {
-      filter: brightness(1.04);
-      transform: translateY(-1px);
-    }
-
     .intro-right h3 {
       font-size: 18px;
       margin-bottom: 10px;
@@ -196,7 +191,6 @@
       line-height: 1.6;
     }
 
-    /* OFFERS LIST */
     .offers-title {
       margin-top: 30px;
       margin-bottom: 12px;
@@ -227,7 +221,6 @@
 
     .offer-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(148, 163, 184, 0.85);
     }
 
     .offer-name {
@@ -263,12 +256,6 @@
       font-size: 14px;
     }
 
-    .offer-btn:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
-
-    /* FOOTER */
     footer {
       margin-top: 38px;
       background: var(--footer-bg);
@@ -306,10 +293,6 @@
       font-size: 13px;
     }
 
-    .footer-links a:hover {
-      color: #e5e7eb;
-    }
-
     .footer-bottom {
       border-top: 1px solid var(--footer-border);
       padding-top: 8px;
@@ -325,205 +308,280 @@
       .intro {
         grid-template-columns: 1fr;
       }
+
       .footer-grid {
         grid-template-columns: 1fr;
       }
+
       .top-bar {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
       }
     }
-
   </style>
 </head>
 
 <body>
+
 <div class="container">
 
-  <!-- HEADER -->
   <header class="top-bar">
     <div class="brand">
       <div class="brand-logo">IO</div>
+
       <div>
         <div class="brand-title">VNLOAN</div>
-        <div class="brand-sub">Creditnice • FinPug • Cashonline…</div>
-      </div>
-    </div>
-
-    <a href="#offers" class="cta-main">Vay tiền ngay →</a>
-  </header>
-
-  <!-- INTRO SECTION -->
-  <section class="intro">
-    <div class="intro-left">
-      <div class="badge">Đối tác tài chính online – xét duyệt tự động</div>
-
-      <h1>Vay tiền online <span>nhanh</span> – nhận tiền trong ngày</h1>
-      <p>
-        Tổng hợp các ứng dụng vay tiền uy tín như Creditnice, FinPug, Creditify,
-        Cashonline, Finloo, Credy, Crezu, Credilo. Đăng ký đơn giản, xét duyệt nhanh,
-        giải ngân về tài khoản ngân hàng.
-      </p>
-
-      <ul>
-        <li>Xét duyệt tự động, chỉ vài phút là có kết quả</li>
-        <li>Đăng ký 100% online trên điện thoại, không cần gặp mặt</li>
-        <li>Nhiều hạn mức, nhiều app cho bạn lựa chọn</li>
-      </ul>
-
-      <a href="#offers" class="big-btn">Xem danh sách app vay ↓</a>
-    </div>
-
-    <div class="intro-right">
-      <h3>Ưu đãi hôm nay</h3>
-      <p>
-        Khoản vay tham khảo: <b>1 – 100 triệu</b><br>
-        Hình thức: <b>Vay tín chấp, hồ sơ online</b><br>
-        Thời gian duyệt: <b>Vài phút – vài giờ</b><br>
-        Độ tuổi: <b>18 – 60+ (tùy app)</b><br><br>
-        Lãi suất, hạn mức &amp; điều kiện cụ thể do từng đối tác cung cấp. Một số app
-        hỗ trợ khách mới với ưu đãi tốt hơn.
-      </p>
-    </div>
-  </section>
-
-  <!-- OFFERS -->
-  <h2 class="offers-title" id="offers">Danh sách ứng dụng vay tiền online</h2>
-  <p class="offers-note">
-    Nên chọn 2–3 app phù hợp để đăng ký, tăng khả năng hồ sơ được duyệt nhanh.
-  </p>
-
-  <div class="offers-grid" id="offersGrid">
-    <!-- JS sẽ render các offer vào đây -->
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="footer-title">Về trang Vay Online</div>
-        <p class="footer-text">
-          Đây là trang tổng hợp và giới thiệu ưu đãi vay tiền online từ nhiều đối tác khác nhau.
-          Chúng tôi không phải là bên cho vay tiền, mọi khoản vay đều do các tổ chức tài chính /
-          ứng dụng đối tác xét duyệt và giải ngân.
-        </p>
-      </div>
-
-      <div>
-        <div class="footer-title">Lưu ý quan trọng</div>
-        <p class="footer-text">
-          • Đọc kỹ điều khoản, lãi suất và phí phạt trước khi ký hợp đồng.<br>
-          • Tuyệt đối không cung cấp mã OTP, mật khẩu Internet Banking cho người lạ.<br>
-          • Chỉ vay trong khả năng chi trả, tránh nợ xấu ảnh hưởng lịch sử tín dụng.
-        </p>
-      </div>
-
-      <div>
-        <div class="footer-title">Liên hệ &amp; hỗ trợ</div>
-        <div class="footer-links">
-          <a href="#">Câu hỏi thường gặp</a>
-          <a href="#">Chính sách bảo mật</a>
-          <a href="#">Điều khoản sử dụng</a>
-          <a href="#">Liên hệ hợp tác</a>
+        <div class="brand-sub">
+          Creditnice • FinPug • Cashonline…
         </div>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <span>© 2025 VNLOAN.IO.VN All rights reserved.</span>
-      <span>*Trang mang tính chất tham khảo, không chịu trách nhiệm về quyết định vay của người dùng.</span>
+    <a href="#offers" class="cta-main">
+      Vay tiền ngay →
+    </a>
+  </header>
+
+  <section class="intro">
+
+    <div class="intro-left">
+
+      <div class="badge">
+        Đối tác tài chính online – xét duyệt tự động
+      </div>
+
+      <h1>
+        Vay tiền online <span>nhanh</span> – nhận tiền trong ngày
+      </h1>
+
+      <p>
+        Tổng hợp các ứng dụng vay tiền uy tín như Creditnice,
+        FinPug, Creditify, Cashonline, Finloo, Credy,
+        Crezu, Credilo.
+      </p>
+
+      <ul>
+        <li>Xét duyệt tự động, chỉ vài phút là có kết quả</li>
+        <li>Đăng ký online 100%</li>
+        <li>Nhiều app cho bạn lựa chọn</li>
+      </ul>
+
+      <a href="#offers" class="big-btn">
+        Xem danh sách app vay ↓
+      </a>
+
     </div>
+
+    <div class="intro-right">
+
+      <h3>Ưu đãi hôm nay</h3>
+
+      <p>
+        Khoản vay tham khảo:
+        <b>1 – 100 triệu</b><br>
+
+        Hình thức:
+        <b>Vay tín chấp online</b><br>
+
+        Thời gian duyệt:
+        <b>Vài phút – vài giờ</b><br>
+
+        Độ tuổi:
+        <b>18 – 60+</b>
+      </p>
+
+    </div>
+
+  </section>
+
+  <h2 class="offers-title" id="offers">
+    Danh sách ứng dụng vay tiền online
+  </h2>
+
+  <p class="offers-note">
+    Nên chọn 2–3 app phù hợp để tăng khả năng duyệt.
+  </p>
+
+  <div class="offers-grid" id="offersGrid"></div>
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-title">
+          Về trang Vay Online
+        </div>
+
+        <p class="footer-text">
+          Đây là trang tổng hợp và giới thiệu ưu đãi vay online.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-title">
+          Lưu ý quan trọng
+        </div>
+
+        <p class="footer-text">
+          • Không cung cấp OTP cho người lạ.<br>
+          • Đọc kỹ điều khoản trước khi vay.<br>
+          • Chỉ vay trong khả năng chi trả.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-title">
+          Hỗ trợ
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Chính sách bảo mật</a>
+          <a href="#">Điều khoản sử dụng</a>
+          <a href="#">Liên hệ</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 VNLOAN.IO.VN</span>
+      <span>Trang mang tính chất tham khảo</span>
+    </div>
+
   </footer>
 
 </div>
 
-<!-- JS: random thứ tự offer & render -->
 <script>
+
   const offers = [
+
     {
       name: "Creditnice VN",
-      amount: "lên đến 10.000.000 đ",
-      term: "tối đa 30 ngày",
+      amount: "10.000.000 đ",
+      term: "30 ngày",
       approve: "94%",
       url: "https://go.dinos.click/click?a=84333&o=990"
     },
-        {
+
+    {
       name: "Jeff App VN",
-      amount: "lên đến 10.000.000 đ",
-      term: "tối đa 30 ngày",
+      amount: "10.000.000 đ",
+      term: "30 ngày",
       approve: "94%",
       url: "https://go.dinos.click/click?a=84333&o=225"
     },
-      {
+
+    {
       name: "Binixo VN",
-      amount: "lên đến 10.000.000 đ",
-      term: "tối đa 30 ngày",
+      amount: "10.000.000 đ",
+      term: "30 ngày",
       approve: "94%",
       url: "https://static.clickbuy.asia/click?a=84333&o=456"
     },
+
     {
       name: "FinPug VN",
-      amount: "lên đến 10.000.000 đ",
-      term: "tối đa 30 ngày",
+      amount: "10.000.000 đ",
+      term: "30 ngày",
       approve: "94%",
       url: "https://ads.clickbuy.asia/click?a=84333&o=1257"
     },
+
     {
       name: "Creditify VN",
-      amount: "lên đến 10.000.000 đ",
-      term: "tối đa 30 ngày",
+      amount: "10.000.000 đ",
+      term: "30 ngày",
       approve: "93%",
       url: "https://murtov.com/SYmS"
     },
+
     {
       name: "Credy VN",
-      amount: "lên đến 15.000.000 đ",
-      term: "tối đa 60 ngày",
+      amount: "15.000.000 đ",
+      term: "60 ngày",
       approve: "93%",
       url: "https://go.dinos.click/click?a=84333&o=370"
     },
+
     {
       name: "Finloo VN",
-      amount: "lên đến 10.000.000 đ",
-      term: "tối đa 30 ngày",
+      amount: "10.000.000 đ",
+      term: "30 ngày",
       approve: "92%",
       url: "https://rdr.pdlsd.net/in/offer/2981?aid=109238"
     },
+
     {
       name: "VayMeo VN",
-      amount: "lên đến 20.000.000 đ",
-      term: "tối đa 90 ngày",
+      amount: "20.000.000 đ",
+      term: "90 ngày",
       approve: "92%",
       url: "https://go.dinos.click/click?a=84333&o=1185"
+    }
+
   ];
 
-  // Fisher–Yates shuffle để random thứ tự
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
+
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+
+      [array[i], array[j]] =
+      [array[j], array[i]];
     }
+
     return array;
   }
 
-  const grid = document.getElementById("offersGrid");
-  const shuffled = shuffle(offers.slice()); // copy rồi shuffle
+  const grid =
+  document.getElementById("offersGrid");
+
+  const shuffled =
+  shuffle([...offers]);
 
   shuffled.forEach(o => {
-    const card = document.createElement("div");
+
+    const card =
+    document.createElement("div");
+
     card.className = "offer-card";
+
     card.innerHTML = `
-      <div class="offer-name">${o.name}</div>
-      <div class="offer-info">Số tiền: ${o.amount}</div>
-      <div class="offer-info">Thời hạn: ${o.term}</div>
-      <div class="offer-approve">Tỷ lệ phê duyệt: ${o.approve}</div>
-      <a href="${o.url}" target="_blank" rel="nofollow" class="offer-btn">Nhận tiền</a>
+      <div class="offer-name">
+        ${o.name}
+      </div>
+
+      <div class="offer-info">
+        Số tiền: ${o.amount}
+      </div>
+
+      <div class="offer-info">
+        Thời hạn: ${o.term}
+      </div>
+
+      <div class="offer-approve">
+        Tỷ lệ duyệt: ${o.approve}
+      </div>
+
+      <a
+        href="${o.url}"
+        target="_blank"
+        rel="nofollow noopener"
+        class="offer-btn"
+      >
+        Nhận tiền
+      </a>
     `;
+
     grid.appendChild(card);
+
   });
+
 </script>
 
 </body>
-  <link rel="icon" type="image/png" href="http://vnloan.io.vn/favicon_vay_tien.png">
 </html>
+```
